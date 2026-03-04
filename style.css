@@ -1,0 +1,214 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #aaa;
+}
+
+/* Message défilant */
+.marquee {
+  background: black;
+  color: white;
+  padding: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+}
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: defilement 25s linear infinite;
+}
+@keyframes defilement {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Zone image + texte */
+.contenu {
+  position: relative;
+  width: 100%;
+  height: 100vh;       /* occupe toute la hauteur de la fenêtre */
+  margin: 0;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: fade 12s infinite; /* durée totale de l’animation */
+}
+
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 4s; }
+.slide:nth-child(3) { animation-delay: 8s; }
+
+@keyframes fade {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }   /* apparition progressive */
+  30%  { opacity: 1; }   /* reste visible */
+  40%  { opacity: 0; }   /* disparition progressive */
+  100% { opacity: 0; }
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* affiche l’image entière */
+  background: burlywood;     /* bandes vides en noir */
+}
+
+.slide h2 {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 100%;
+  color: black;
+  font-size: 36px;
+  padding: 20px 0;
+  margin: 0;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column; /* Les éléments sont l'un sous l'autre par défaut */
+  max-width: 1300px;
+  background-color: #f5f5f5; /* Couleur de fond gris clair comme sur la photo */
+  border-radius: 20px;       /* Coins arrondis du conteneur */
+  overflow: hidden;          /* Pour que l'image respecte les coins arrondis */
+  font-family: sans-serif;
+  margin: 80px auto;
+  align-items: center;
+}
+
+.image-box img {
+  width: 100%;
+  height: 80px auto;
+  display: block;
+}
+
+.text-box {
+  padding: 80px;            /* Espacement intérieur du texte */
+  color: #333;
+}
+
+.text-box h2 {
+  font-size: 4rem;
+  margin-bottom: 30px;
+  font-weight: 300;         /* Style de police fin */
+}
+
+.text-box p {
+  line-height: 3.2;         /* Interligne pour la lisibilité */
+  color: #666;
+  font-size: 15px;
+}
+
+/* Version Ordinateur : Aligne l'image et le texte côte à côte */
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;    /* Aligne horizontalement sur grand écran */
+    align-items: stretch;
+  }
+  
+  .image-box, .text-box {
+    flex: 1;                /* Donne 50% de largeur à chaque bloc */
+  }
+}
+
+/* Sections */
+section {
+  padding: 40px;
+  text-align: center;
+}
+section h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #333;
+}
+.galerie {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.galerie img {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.Publicite img {
+  width: 40%;
+  display: block;
+  margin: 10px auto;
+  border-radius: 8px;
+}
+
+footer {
+  background: #111;
+  color: #eee;
+  padding: 40px 20px 20px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.footer-container div {
+  flex: 1;
+  min-width: 220px;
+  margin: 20px;
+}
+
+.footer-brand h3 {
+  color: #ffcc00; /* accent doré */
+  font-size: 24px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-links li {
+  margin: 8px 0;
+}
+.footer-links a {
+  color: #eee;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-links a:hover {
+  color: #ffcc00;
+}
+
+.footer-contact p {
+  margin: 6px 0;
+}
+
+.footer-social a {
+  color: #eee;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-social a:hover {
+  color: #ffcc00;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #444;
+  margin-top: 20px;
+  padding-top: 10px;
+  font-size: 14px;
+  color: #aaa;
+}
